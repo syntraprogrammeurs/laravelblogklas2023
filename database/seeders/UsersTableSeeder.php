@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
         //
         DB::table("users")->insert([
             "is_active" => 1,
-            "role_id" => 1,
+//            "role_id" => 1,
             "name" => "Tom",
             "email" => "syntraprogrammeurs@gmail.com",
             "photo_id" => 1,

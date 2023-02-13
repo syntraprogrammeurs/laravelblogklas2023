@@ -24,7 +24,14 @@
                     <td>{{$user->photo_id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->role_id?$user->role->name:'User without role'}}</td>
+{{--                    <td>{{$user->role_id?$user->role->name:'User without role'}}</td>--}}
+                    <td>
+                        @foreach($user->roles as $role)
+                            <span class="badge badge-pill badge-info">
+                                {{$role->name}}
+                            </span>
+                        @endforeach
+                    </td>
                     <td class="{{$user->is_active == 1?'bg-success':'bg-danger'}}">{{$user->is_active == 1?'Active':'Not Active'}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>

@@ -32,8 +32,8 @@ class RoleSeeder extends Seeder
             "created_at" => now(),
             "updated_at" => now(),
         ]);
-        Role::factory()
-            ->count(5)
-            ->create();
+//        Role::factory()
+//            ->count(5)
+//            ->create();
     }
 }
