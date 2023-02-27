@@ -26,6 +26,7 @@ Route::get("/admin", [
 
 Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
     Route::resource("users", AdminUsersController::class);
+    Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');
 });
 
 Auth::routes();

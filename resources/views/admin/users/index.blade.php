@@ -4,6 +4,12 @@
 @endsection
 @section('content')
     <h1>USERS</h1>
+    @if(session('status'))
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
+            <strong>Success!</strong>{{session('status')}}
+        </div>
+    @endif
     <table class="table table-striped">
         <thead>
             <tr>
@@ -15,6 +21,8 @@
                 <th>Active</th>
                 <th>Created</th>
                 <th>Updated</th>
+                <th>Deleted</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -43,6 +51,18 @@
                     <td class="{{$user->is_active == 1?'bg-success':'bg-danger'}}">{{$user->is_active == 1?'Active':'Not Active'}}</td>
                     <td>{{$user->created_at}}</td>
                     <td>{{$user->updated_at}}</td>
+                    <td>{{$user->deleted_at}}</td>
+                    <td>
+                    @if($user->deleted_at != null)
+                        <a class="btn btn-warning" href="{{route('admin.userrestore', $user->id)}}">Restore</a>
+                    @else
+                        {!! Form::open(['method'=>'DELETE', 'action'=>['\App\Http\Controllers\AdminUsersController@destroy',$user->id]]) !!}
+                        <div class="form-group">
+                            {!! Form::submit('Delete User',['class'=>'btn btn-danger']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    @endif
+                    </td>
 {{--                    <td>{{$user->user_id}}</td>--}}
 {{--                    <td>{{$user->photo_id}}</td>--}}
 {{--                    <td>{{$user->user_name}}</td>--}}

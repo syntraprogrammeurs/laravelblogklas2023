@@ -9,7 +9,7 @@ class Photo extends Model
 {
     use HasFactory;
     protected $fillable = ["file"];
-    protected $uploads='/img/';
+    protected $uploads='/assets/';
     //accessor
 
     //getFileAttribute: samenstelling
