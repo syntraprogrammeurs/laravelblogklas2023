@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminUsersController;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", function () {
     return view("welcome");
 });
-Route::get("/admin", [
-    App\Http\Controllers\HomeController::class,
-    "index",
-])->name("home");
+
 
 /**backend**/
 
-Route::group(["prefix" => "admin", "middleware" => 'auth'], function () {
+Route::group(["prefix" => "admin", "middleware" => ['auth','verified']], function () {
+    Route::get("/", [
+        App\Http\Controllers\HomeController::class,
+        "index",
+    ])->name("home");
     Route::group(["middleware" => 'admin'], function () {
         Route::resource("users", AdminUsersController::class);
         Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');
@@ -34,4 +36,4 @@ Route::group(["prefix" => "admin", "middleware" => 'auth'], function () {
     });
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);//variabele met de naam verify
