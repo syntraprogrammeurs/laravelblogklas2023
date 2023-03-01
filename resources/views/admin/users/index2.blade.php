@@ -1,9 +1,5 @@
-@extends('layouts.admin')
-@section('title')
-    Users
-@endsection
-@section('content')
-    <h1>USERS</h1>
+<x-admin2>
+    <x-heading heading="Alle Users"></x-heading>
     @if(session('status'))
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
@@ -87,4 +83,4 @@
 
     </table>
     {{$users->links()}}
-@endsection
+</x-admin2>

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminUsersController;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +26,12 @@ Route::get("/admin", [
 
 /**backend**/
 
-Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
-    Route::resource("users", AdminUsersController::class);
-    Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');
+Route::group(["prefix" => "admin", "middleware" => 'auth'], function () {
+    Route::group(["middleware" => 'admin'], function () {
+        Route::resource("users", AdminUsersController::class);
+        Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');
+        Route::get('usersblade',[AdminUsersController::class,'index2'])->name('users.index2');
+    });
 });
 
 Auth::routes();

@@ -23,7 +23,7 @@
                 <!-- Content Row -->
                @include('components._cards')
                 <!-- Content Row -->
-                @yield('content')
+                {{ $slot }}
             </div>
             <!-- /.container-fluid -->
         </div>

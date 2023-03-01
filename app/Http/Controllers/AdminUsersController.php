@@ -29,6 +29,12 @@ class AdminUsersController extends Controller
         $users = User::orderByDesc('id')->withTrashed()->paginate(20);
         return view("admin.users.index", ["users" => $users]);
     }
+    public function index2()
+    {
+        //
+        $users = User::orderByDesc('id')->withTrashed()->paginate(20);
+        return view("admin.users.index2", ["users" => $users]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +59,6 @@ class AdminUsersController extends Controller
 
        //dd($request->file('');
        /// dd(request()->file('photo_id'));
-        //dd($request);
 
         $user = new User();
         $user->name = $request->name;
@@ -181,4 +186,7 @@ class AdminUsersController extends Controller
         //return redirect()->route('admin.users');
         return back();
     }
+//    protected function roleUsers(User $user){
+//
+//    }
 }
