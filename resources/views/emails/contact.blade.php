@@ -1,8 +1,12 @@
 <x-mail::message>
-<h1>Welkom, bevestig uw mailadres</h1>
-    <img src="" alt="">
-
-<x-mail::button :url="''">
+<h1>Message from website www.google.be</h1>
+   <x-mail::panel>
+       <p>Name:{{request()->name}}</p>
+       <p>Name:{{request()->email}}</p>
+       <p>Name:{{request()->message}}</p>
+   </x-mail::panel>
+{{--    primary, success en error--}}
+<x-mail::button :url="''" color="success">
 Button Text
 </x-mail::button>
 

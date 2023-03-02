@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/* frontend */
 Route::get("/", function () {
     return view("welcome");
 });
-
+Route::get('contactformulier',[\App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');
+Route::post('contactformulier',[\App\Http\Controllers\ContactController::class, 'store']);
 
 /**backend**/
-
 Route::group(["prefix" => "admin", "middleware" => ['auth','verified']], function () {
     Route::get("/", [
         App\Http\Controllers\HomeController::class,
