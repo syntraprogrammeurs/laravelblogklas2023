@@ -26,7 +26,7 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
-        $users = User::orderByDesc('id')->withTrashed()->paginate(20);
+        $users = User::with(['roles','photo'])->orderByDesc('id')->withTrashed()->paginate(20);
         return view("admin.users.index", ["users" => $users]);
     }
     public function index2()
@@ -34,6 +34,7 @@ class AdminUsersController extends Controller
         //
         $users = User::orderByDesc('id')->withTrashed()->paginate(20);
         return view("admin.users.index2", ["users" => $users]);
+
     }
 
     /**

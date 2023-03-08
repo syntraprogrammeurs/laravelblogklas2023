@@ -29,11 +29,14 @@ Route::group(["prefix" => "admin", "middleware" => ['auth','verified']], functio
         App\Http\Controllers\HomeController::class,
         "index",
     ])->name("home");
+    Route::resource('posts',\App\Http\Controllers\AdminPostsController::class);
+
     Route::group(["middleware" => 'admin'], function () {
         Route::resource("users", AdminUsersController::class);
         Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');
         Route::get('usersblade',[AdminUsersController::class,'index2'])->name('users.index2');
     });
+
 });
 
 Auth::routes(['verify'=>true]);//variabele met de naam verify

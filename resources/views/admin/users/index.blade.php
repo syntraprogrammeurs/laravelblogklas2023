@@ -51,9 +51,9 @@
                     @endforeach
                 </td>
                 <td class="{{$user->is_active == 1?'bg-success':'bg-danger'}}">{{$user->is_active == 1?'Active':'Not Active'}}</td>
-                <td>{{$user->created_at}}</td>
-                <td>{{$user->updated_at}}</td>
-                <td>{{$user->deleted_at}}</td>
+                <td>{{$user->created_at ? $user->created_at->diffForHumans() : ''}}</td>
+                <td>{{$user->updated_at ? $user->updated_at->diffForHumans() :''}}</td>
+                <td>{{$user->deleted_at ? $user->deleted_at->diffForHumans() : ''}}</td>
                 <td>
                     @if($user->deleted_at != null)
                         <a class="btn btn-warning" href="{{route('admin.userrestore', $user->id)}}">Restore</a>

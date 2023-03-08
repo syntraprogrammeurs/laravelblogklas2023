@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Photo;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 
-class PhotoSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,7 +16,6 @@ class PhotoSeeder extends Seeder
     public function run()
     {
         //
-        Storage::disk('public')->deleteDirectory('posts');
-        Photo::factory()->count(10)->create();
+        Category::factory()->count(10)->create();
     }
 }

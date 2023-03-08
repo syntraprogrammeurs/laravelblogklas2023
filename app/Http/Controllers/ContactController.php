@@ -18,6 +18,12 @@ class ContactController extends Controller
            'name' => ['required', 'between:2,255'],
            'email'=>['required','email'],
            'message' => ['required', 'regex:/^[^<>]*$/'],
+        ],
+        [
+            'name.required' => 'The contact name is required',
+            'name.between'=> 'The name has to be between 2 and 255 characters',
+            'message.required' => 'Message is required to be filled out',
+           'message.regex' => 'There can be no script tags in the message'
         ]);
 
         //data versturen
