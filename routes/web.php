@@ -29,8 +29,21 @@ Route::group(["prefix" => "admin", "middleware" => ['auth','verified']], functio
         App\Http\Controllers\HomeController::class,
         "index",
     ])->name("home");
+    /* posts */
     Route::resource('posts',\App\Http\Controllers\AdminPostsController::class);
+    Route::get('authors/{author:name}',[\App\Http\Controllers\AdminPostsController::class, 'indexByAuthor'])->name('authors');
+    Route::post('restore/{post}',[\App\Http\Controllers\AdminPostsController::class,'postRestore'])->name('admin.postrestore');
 
+    /* categories*/
+    Route::resource('categories',\App\Http\Controllers\AdminCategoriesController::class);
+
+
+    /* tags*/
+    Route::resource('tags',\App\Http\Controllers\AdminTagsController::class);
+    Route::get('tags/{tag:name}',[\App\Http\Controllers\AdminTagsController::class, 'indexByTag'])->name('tags');
+    Route::post('tags',[\App\Http\Controllers\AdminTagsController::class, 'postTag'])->name('admin.posttag');
+
+    /* users */
     Route::group(["middleware" => 'admin'], function () {
         Route::resource("users", AdminUsersController::class);
         Route::get('restore/{user}',[AdminUsersController::class,'userRestore'])->name('admin.userrestore');

@@ -58,6 +58,20 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
+           aria-expanded="true" aria-controls="collapseCategories">
+            <i class="fas fa-hashtag"></i>
+            <span>Categories</span>
+        </a>
+        <div id="collapseCategories" class="collapse" aria-labelledby="collapseCategories" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Links:</h6>
+                <a class="collapse-item" href="{{route('categories.index')}}">All categories</a>
+                <a class="collapse-item" href="{{route('categories.create')}}">Create Category</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">

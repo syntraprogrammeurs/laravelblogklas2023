@@ -65,21 +65,6 @@
                         {!! Form::close() !!}
                     @endif
                 </td>
-                {{--                    <td>{{$user->user_id}}</td>--}}
-                {{--                    <td>{{$user->photo_id}}</td>--}}
-                {{--                    <td>{{$user->user_name}}</td>--}}
-                {{--                    <td>{{$user->email}}</td>--}}
-                {{--                    --}}{{--                    <td>{{$user->role_id?$user->role->name:'User without role'}}</td>--}}
-                {{--                    <td>--}}
-                {{--                        @foreach($user->role_names as $role)--}}
-                {{--                            <span class="badge badge-pill badge-info">--}}
-                {{--                                {{$role}}--}}
-                {{--                            </span>--}}
-                {{--                        @endforeach--}}
-                {{--                    </td>--}}
-                {{--                    <td class="{{$user->is_active == 1?'bg-success':'bg-danger'}}">{{$user->is_active == 1?'Active':'Not Active'}}</td>--}}
-                {{--                    <td>{{$user->user_created_at}}</td>--}}
-                {{--                    <td>{{$user->user_updated_at}}</td>--}}
             </tr>
 
         @endforeach
