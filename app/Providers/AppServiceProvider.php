@@ -30,10 +30,10 @@ class AppServiceProvider extends ServiceProvider
         //Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
 //
-//        $usersCount = User::count();
-//        $postsCount = Post::count();
-//
-//        view()->share('usersCount', $usersCount);
-//        view()->share('postsCount', $postsCount);
+        $usersCount = User::count();
+        $postsCount = Post::count();
+
+        view()->share('usersCount', $usersCount);
+        view()->share('postsCount', $postsCount);
     }
 }
