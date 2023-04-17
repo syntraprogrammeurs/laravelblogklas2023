@@ -42,9 +42,9 @@ class Contact extends Mailable
      */
     public function content()
     {
-        return new Content(
+        return (new Content(
             markdown: 'emails.contact',
-        );
+        ))->with('data',$this->data);
     }
 
     /**

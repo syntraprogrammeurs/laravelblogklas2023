@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "laravelcollective/html": "^6.3",
+        "livewire/livewire": "^2.12",
         "openai-php/client": "^0.4.1"
     },
     "require-dev": {

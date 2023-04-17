@@ -1,9 +1,9 @@
 <x-mail::message>
 <h1>Message from website:</h1>
     <x-mail::panel>
-        <p>Name:{{request()->name}}</p>
-        <p>Email:{{request()->email}}</p>
-        <p>Message:{{request()->message}}</p>
+        <p>Name:{{$data['name']}}</p>
+        <p>Email:{{$data['email']}}</p>
+        <p>Message:{{$data['message']}}</p>
     </x-mail::panel>
 
 {{--    kleuren zijn primary, succes en error hieronder--}}

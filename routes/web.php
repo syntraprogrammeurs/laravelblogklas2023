@@ -8,6 +8,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ItunesController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Models\Post;
@@ -35,6 +36,8 @@ Route::get('contactformulier',[ContactController::class,'create'])->name('contac
 Route::post('contactformulier',[ContactController::class,'store'])->name('contact.store');
 Route::get('/post/{post:slug}', [AdminPostsController::class,'post'])->name('frontend.post');
 Route::get('/category/{category:slug}',[AdminCategoriesController::class,'category'])->name('category.category');
+
+Route::get('/itunes', [ItunesController::class,'index'])->name('itunes.index');
 
 /**backend**/
 
